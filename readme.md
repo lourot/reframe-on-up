@@ -162,3 +162,11 @@ $ npm run local
 ```
 
 ![localhost](readme_assets/localhost.png)
+
+## Setting up your AWS account
+
+8. Create an IAM user `myuser` and an access key for it. We will need it in order to use AWS CLI.
+
+See the
+[AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+for more details.
