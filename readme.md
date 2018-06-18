@@ -174,3 +174,14 @@ for more details.
 
 9. Attach the `IAMFullAccess` policy to `myuser` so you can run commands like
    `aws iam create-group ...` later.
+
+10. Install and configure the AWS CLI:
+
+```bash
+$ sudo pip install awscli
+$ aws configure
+AWS Access Key ID [None]: ********
+AWS Secret Access Key [None]: ********
+Default region name [None]: us-east-1
+Default output format [None]:
+```
