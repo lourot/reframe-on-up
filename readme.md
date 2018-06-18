@@ -224,3 +224,14 @@ $ ./up
      AWS region: US East (N. Virginia)
 ...
 ```
+
+14. Reduce the allocated memory to the minimum by adding this to your [up.json](up.json):
+
+```json
+{
+  "...": "...",
+  "lambda": {
+    "memory": 128
+  }
+}
+```
