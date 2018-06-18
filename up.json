@@ -1,0 +1,7 @@
+{
+  "name": "myapp",
+  "profile": "default",
+  "regions": [
+    "us-east-1"
+  ]
+}

@@ -207,3 +207,20 @@ $ aws iam attach-group-policy --group-name apex-up \
   --policy-arn arn:aws:iam::123456789012:policy/apex-up
 $ aws iam add-user-to-group --group-name apex-up --user-name myuser
 ```
+
+## Setting up Up
+
+13. Install Up:
+
+```bash
+$ curl -sf https://up.apex.sh/install | BINDIR=. sh
+apex/up: checking GitHub for latest version
+apex/up: found version 0.6.8 for linux/amd64
+...
+$ ./up
+
+     Project name: myapp
+     AWS profile: default
+     AWS region: US East (N. Virginia)
+...
+```
