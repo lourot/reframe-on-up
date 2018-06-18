@@ -235,3 +235,18 @@ $ ./up
   }
 }
 ```
+
+15. Create useful npm scripts in your [package.json](package.json):
+
+```json
+{
+  "scripts": {
+    "...": "...",
+    "deploy": "reframe build && ./up && ./up stack status && ./up url",
+    "undeploy": "./up stack delete"
+  },
+  "dependencies": {
+    "...": "..."
+  }
+}
+```

@@ -1,7 +1,9 @@
 {
   "scripts": {
     "start": "reframe server",
-    "local": "PORT=3000 reframe start"
+    "local": "PORT=3000 reframe start",
+    "deploy": "reframe build && ./up && ./up stack status && ./up url",
+    "undeploy": "./up stack delete"
   },
   "dependencies": {
     "@reframe/cli": "^0.1.13-next.0",
