@@ -188,3 +188,22 @@ Default output format [None]:
 
 11. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
     [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
+
+12. Apply this policy to `myuser`:
+
+```bash
+$ aws iam create-policy --policy-name apex-up \
+  --policy-document "file://$(pwd)/aws/apex-up-policy.json"
+{
+    "Policy": {
+        "PolicyName": "apex-up", 
+        "...": "...", 
+        "Arn": "arn:aws:iam::123456789012:policy/apex-up", 
+        "UpdateDate": "2018-06-17T21:33:24.495Z"
+    }
+}
+$ aws iam create-group --group-name apex-up
+$ aws iam attach-group-policy --group-name apex-up \
+  --policy-arn arn:aws:iam::123456789012:policy/apex-up
+$ aws iam add-user-to-group --group-name apex-up --user-name myuser
+```
