@@ -90,3 +90,17 @@ $ npx reframe start
 ```
 
 ![localhost](readme_assets/localhost.png)
+
+## Making your app Up-compatible
+
+What you need to know:
+
+* `reframe start` is pretty much like `reframe build && reframe server` and you'll want:
+  * to run `reframe build` locally, then
+  * to send the build output to AWS, and then
+  * to have AWS run `reframe server`.
+* Up creates an AWS Lambda function that:
+  * runs `npm install`, then
+  * runs `PORT=<some number> npm start`, then
+  * waits for your app to behave like an HTTP server listening at `PORT`, and then
+  * exposes it to the world over HTTPS.
