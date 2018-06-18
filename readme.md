@@ -148,3 +148,17 @@ $ npx reframe eject server --skip-git
   }
 }
 ```
+
+7. Run your app locally:
+
+```bash
+$ npm run local
+...
+ ✔ Server running (for development)
+     http://localhost:3000/ -> WelcomePage
+     http://localhost:3000/counter -> CounterPage
+     http://localhost:3000/game-of-thrones -> GameOfThronesPage
+     http://localhost:3000/time -> TimePage
+```
+
+![localhost](readme_assets/localhost.png)
