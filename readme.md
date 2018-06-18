@@ -104,3 +104,21 @@ What you need to know:
   * runs `PORT=<some number> npm start`, then
   * waits for your app to behave like an HTTP server listening at `PORT`, and then
   * exposes it to the world over HTTPS.
+
+### Making your app listen to `PORT`
+
+4. Make your Reframe server code tweakable:
+
+```
+$ npx reframe eject server --skip-git
+...
+ ✔ Eject done.
+```
+
+> **NOTES**:
+>
+> * In the Reframe terminology "ejecting" a Reframe component means dumping the default code of that
+>   component to a file so you can tweak it. Eventually if you eject all Reframe components, you
+>   have fully gotten rid of Reframe.
+> * Without `--skip-git`, `reframe eject` will fail if your project isn't a Git repository. I anyway
+>   don't like the idea of Reframe fiddling with Git.
