@@ -51,3 +51,27 @@ $ npm install @reframe/cli@0.1.13-next.0 --save
 > the build output contains invalid paths in some cases. Thus we need to install this floating
 > version which contains
 > [a fix](https://github.com/reframejs/reframe/commit/215a3b97316e588020351cb851ab4afafc765e0d).
+
+2. Create a Hello World:
+
+```bash
+$ npx reframe init .
+```
+
+Unfortunately `reframe init` overwrites our [package.json](package.json), thus removing our
+dependency to `@reframe/cli`. This is because Reframe is designed to be installed globally on your
+system, but I personally prefer to install it locally in the project as a dependency, which is also
+needed in order to deploy it to Up.
+
+Fix this by editing your [package.json](package.json) and making sure it looks like:
+
+```json
+{
+  "dependencies": {
+    "@reframe/cli": "^0.1.13-next.0",
+    "@brillout/fetch": "^0.1.0",
+    "@reframe/react-kit": "0.1.13-next.0",
+    "react": "^16.3.2"
+  }
+}
+```
