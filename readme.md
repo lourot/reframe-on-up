@@ -185,3 +185,6 @@ AWS Secret Access Key [None]: ********
 Default region name [None]: us-east-1
 Default output format [None]:
 ```
+
+11. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
+    [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
