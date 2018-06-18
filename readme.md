@@ -12,3 +12,12 @@
 <p align="center">
   How I deployed for free a Reframe web app on Up in less than an hour
 </p>
+
+[<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe.jpg" align="left" width="64" height="64">](https://github.com/reframejs/reframe)
+
+# What is Reframe?
+
+[Reframe](https://github.com/reframejs/reframe) is a powerful framework for creating
+[Node.js](https://nodejs.org/en/) web apps. It gets you quickly started and doesn't get in the way
+when your app becomes more complex. It supports [React](https://reactjs.org/) and
+[Vue.js](https://vuejs.org/) for the front-end.
