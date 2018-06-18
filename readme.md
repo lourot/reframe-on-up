@@ -75,3 +75,18 @@ Fix this by editing your [package.json](package.json) and making sure it looks l
   }
 }
 ```
+
+3. Run your app locally:
+
+```bash
+$ npm install
+$ npx reframe start
+...
+ ✔ Server running (for development)
+     http://localhost:3000/ -> WelcomePage
+     http://localhost:3000/counter -> CounterPage
+     http://localhost:3000/game-of-thrones -> GameOfThronesPage
+     http://localhost:3000/time -> TimePage
+```
+
+![localhost](readme_assets/localhost.png)
