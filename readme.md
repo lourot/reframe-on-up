@@ -144,7 +144,7 @@ $ npx reframe eject server --skip-git
     "local": "PORT=3000 reframe start"
   },
   "dependencies": {
-    // ...
+    "...": "..."
   }
 }
 ```
