@@ -250,3 +250,15 @@ $ ./up
   }
 }
 ```
+
+## Deploying your app
+
+16. Enjoy :)
+
+```bash
+$ npm run deploy
+...
+https://9bvkierp7i.execute-api.us-east-1.amazonaws.com/staging/
+```
+
+![remote](readme_assets/remote.png)
