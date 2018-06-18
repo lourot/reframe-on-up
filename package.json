@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "start": "reframe server",
+    "local": "PORT=3000 reframe start"
+  },
   "dependencies": {
     "@reframe/cli": "^0.1.13-next.0",
     "@brillout/fetch": "^0.1.0",

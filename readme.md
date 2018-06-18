@@ -134,3 +134,17 @@ $ npx reframe eject server --skip-git
     });
 // ...
 ```
+
+6. Create useful npm scripts in your [package.json](package.json):
+
+```json
+{
+  "scripts": {
+    "start": "reframe server",
+    "local": "PORT=3000 reframe start"
+  },
+  "dependencies": {
+    // ...
+  }
+}
+```
