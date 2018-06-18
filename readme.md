@@ -12,6 +12,9 @@
 <p align="center">
   How I deployed for free a Reframe web app on Up in less than an hour
 </p>
+<p align="right">
+  <a href="https://github.com/AurelienLourot">@AurelienLourot</a> - 17 Jun 2018
+</p>
 
 [<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe.jpg" align="left" width="64" height="64">](https://github.com/reframejs/reframe)
 
@@ -30,3 +33,21 @@ when your app becomes more complex. It supports [React](https://reactjs.org/) an
 [AWS Lambda](https://aws.amazon.com/lambda/) in your own AWS account. Hosting your app on AWS will
 remain free as long as it doesn't consume much memory and you have less than a million requests per
 month.
+
+# Step-by-step guide
+
+## Creating a Reframe web app
+
+1. Install Reframe:
+
+```bash
+$ mkdir ~/myapp/
+$ cd ~/myapp/
+$ echo {} > package.json
+$ npm install @reframe/cli@0.1.13-next.0 --save
+```
+
+> **NOTE**: At the time of writing the latest stable Reframe version (0.1.12) has a bug in which
+> the build output contains invalid paths in some cases. Thus we need to install this floating
+> version which contains
+> [a fix](https://github.com/reframejs/reframe/commit/215a3b97316e588020351cb851ab4afafc765e0d).
