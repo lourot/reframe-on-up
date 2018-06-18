@@ -122,3 +122,15 @@ $ npx reframe eject server --skip-git
 >   have fully gotten rid of Reframe.
 > * Without `--skip-git`, `reframe eject` will fail if your project isn't a Git repository. I anyway
 >   don't like the idea of Reframe fiddling with Git.
+
+5. Replace `3000` by `process.env.PORT` in [server/start.js](server/start.js). So it should look
+   like:
+
+```js
+// ...
+    const server = Hapi.Server({
+        port: process.env.PORT,
+        debug: {request: ['internal']},
+    });
+// ...
+```
