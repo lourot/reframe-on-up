@@ -1,5 +1,7 @@
 > Work in progress
 
+[![Build Status](https://travis-ci.org/AurelienLourot/reframe-on-up.svg?branch=master)](https://travis-ci.org/AurelienLourot/reframe-on-up)
+
 <p align="center">
   <a href="https://github.com/AurelienLourot/reframe-on-up">
     <img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe-on-up.jpg"
@@ -13,7 +15,7 @@
   How I deployed for free a Reframe web app on Up in less than an hour
 </p>
 <p align="right">
-  <a href="https://github.com/AurelienLourot">@AurelienLourot</a> - 17 Jun 2018
+  <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
 </p>
 
 [<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe.jpg" align="left" width="64" height="64">](https://github.com/reframejs/reframe)
