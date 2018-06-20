@@ -16,6 +16,6 @@
   <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
 </p>
 
-[Part I: How I deployed for free a Reframe web app on Up in less than an hour](01-deploy/)
+⇒ [Part I: How I deployed for free a Reframe web app on Up in less than an hour](01-deploy/)
 
-[Part II: How I set up a custom domain for my Reframe web app](02-custom-domain/)
+⇒ [Part II: How I set up a custom domain for my Reframe web app](02-custom-domain/)

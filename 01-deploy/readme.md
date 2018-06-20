@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/AurelienLourot/reframe-on-up">
-    <img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/01-deploy/readme_assets/reframe-on-up.jpg"
+    <img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe-on-up.jpg"
          width="200" height="96">
   </a>
 </p>
@@ -14,7 +14,7 @@
   <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
 </p>
 
-[<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe.jpg" align="left" width="64" height="64">](https://github.com/reframejs/reframe)
+[<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/01-deploy/readme_assets/reframe.jpg" align="left" width="64" height="64">](https://github.com/reframejs/reframe)
 
 # What is Reframe?
 
@@ -23,7 +23,7 @@
 when your app becomes more complex. It supports [React](https://reactjs.org/) and
 [Vue.js](https://vuejs.org/) for the front-end.
 
-[<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/up.jpg" align="left" width="64" height="64">](https://github.com/apex/up)
+[<img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/01-deploy/readme_assets/up.jpg" align="left" width="64" height="64">](https://github.com/apex/up)
 
 # What is Up?
 
