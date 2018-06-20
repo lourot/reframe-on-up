@@ -156,3 +156,8 @@ $ npm run deploy
 ```
 
 ![remote](readme_assets/remote.png)
+
+<br/>
+<p align="right">
+  <b>Thanks</b> to <a href="https://github.com/brillout">brillout</a> for reading drafts of this.
+</p>

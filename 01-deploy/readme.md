@@ -287,3 +287,8 @@ At this point, you can simply take this into account in your `href=` and `src=` 
 developing your own app or set up a custom domain.
 
 ⇒ [Part II: How I set up a custom domain for my Reframe web app](../02-custom-domain/)
+
+<br/>
+<p align="right">
+  <b>Thanks</b> to <a href="https://github.com/brillout">brillout</a> for reading drafts of this.
+</p>
