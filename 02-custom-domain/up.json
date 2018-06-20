@@ -1,0 +1,15 @@
+{
+  "name": "myapp",
+  "profile": "default",
+  "regions": [
+    "us-east-1"
+  ],
+  "lambda": {
+    "memory": 128
+  },
+  "stages": {
+    "staging": {
+      "domain": "myapp.ghuser.io"
+    }
+  }
+}

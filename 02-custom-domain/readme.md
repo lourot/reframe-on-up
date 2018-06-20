@@ -32,9 +32,9 @@ In this part we will now set up a
 
 # Step-by-step guide
 
-## Buying a domain name on AWS
+## Buying a domain name
 
-1. Buy a domain name ([ghuser.io](https://ghuser.io) in this example):
+1. Buy a domain name on AWS ([ghuser.io](https://ghuser.io) in this example):
 
 ```bash
 $ export CONTACT="FirstName=My,LastName=User,ContactType=PERSON,OrganizationName=,\
@@ -47,4 +47,22 @@ $ aws route53domains register-domain --domain-name ghuser.io --duration-in-years
 
 > **NOTE**: We're not using `--privacy-protect-tech-contact`, i.e. we're not making the technical
 > contact details secret on [WHOIS](https://en.wikipedia.org/wiki/WHOIS), which will be useful in a
-> a later step.
+> later step.
+
+## Setting up Up
+
+2. Tell Up to deploy on your custom domain by adding this to your [up.json](up.json):
+
+```json
+{
+  "...": "...",
+  "stages": {
+    "staging": {
+      "domain": "myapp.ghuser.io"
+    }
+  }
+}
+```
+
+> **NOTE**: [It doesn't have to be a sub-domain](https://up.docs.apex.sh/#guides.development_to_production_workflow.mapping_custom_domains_to_stages)
+> like `myapp.ghuser.io`. `ghuser.io` is also fine.
