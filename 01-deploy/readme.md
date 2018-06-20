@@ -245,6 +245,10 @@ $ ./up
 }
 ```
 
+> **NOTE**: This memory size is the only one for which
+> [AWS gives us](https://aws.amazon.com/lambda/pricing/) more free seconds per month than we have
+> seconds in a month.
+
 12. Create useful npm scripts in your [package.json](package.json):
 
 ```json
