@@ -87,15 +87,15 @@ to prove that you own the domain name (which you bought here from AWS).
 > certification authority they already know that we own [ghuser.io](https://ghuser.io) since we
 > bought it from them.
 
-To do so, it has sent an e-mail to these 8 addresses:
+For you to do so, it has sent an e-mail to these 8 addresses:
 
-* 5 @ghuser.io (e.g. admin@ghuser.io), but we don't have any e-mail server running, so we will never
-  get them.
+* 5 @ghuser.io addresses (e.g. admin@ghuser.io), but we don't have any e-mail server running, so we
+  will never get them.
 * The admin contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS, but we used
   `--privacy-protect-admin-contact`, so this won't work.
 * The registrant contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS, but we
   used `--privacy-protect-registrant-contact`, so this won't work.
-* The technical contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS. That why
+* The technical contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS. That's why
   we have decided not to hide this information on WHOIS.
 
 In my case though AWS bought [ghuser.io](https://ghuser.io) from the registrar
