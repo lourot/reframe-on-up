@@ -18,7 +18,7 @@
 
 ⇐ [Part I: How I deployed for free a Reframe web app on Up in less than an hour](../01-deploy/)
 
-In the first part of this [series](../) we have
+In the first part of this [series](../readme.md) we have
 
 * created a [Reframe](https://github.com/reframejs/reframe) web app,
 * set up our AWS account,

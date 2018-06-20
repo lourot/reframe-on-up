@@ -14,7 +14,7 @@
   <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
 </p>
 
-In the first part of this [series](../) I show how I
+In the first part of this [series](../readme.md) I show how I
 
 * created a [Reframe](https://github.com/reframejs/reframe) web app,
 * set up my AWS account,
