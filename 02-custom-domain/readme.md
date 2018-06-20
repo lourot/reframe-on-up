@@ -66,3 +66,76 @@ $ aws route53domains register-domain --domain-name ghuser.io --duration-in-years
 
 > **NOTE**: [It doesn't have to be a sub-domain](https://up.docs.apex.sh/#guides.development_to_production_workflow.mapping_custom_domains_to_stages)
 > like `myapp.ghuser.io`. `ghuser.io` is also fine.
+
+3. Ask [AWS Certificate Manager](https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html)
+   (ACM) to create your SSL/TLS certificate:
+
+```bash
+$ ./up stack plan
+
+       domains: Check your email for certificate approval
+     ⠧ confirm: ghuser.io
+```
+
+4. Prove ownership of the domain name:
+
+At this point the
+[certification authority](https://en.wikipedia.org/wiki/Certificate_authority) (here AWS) needs you
+to prove that you own the domain name (which you bought here from AWS).
+
+> **NOTE**: Although this is a normal procedure, I wished AWS had taken us out of the loop: as a
+> certification authority they already know that we own [ghuser.io](https://ghuser.io) since we
+> bought it from them.
+
+To do so, it has sent an e-mail to these 8 addresses:
+
+* 5 @ghuser.io (e.g. admin@ghuser.io), but we don't have any e-mail server running, so we will never
+  get them.
+* The admin contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS, but we used
+  `--privacy-protect-admin-contact`, so this won't work.
+* The registrant contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS, but we
+  used `--privacy-protect-registrant-contact`, so this won't work.
+* The technical contact from [step 1](#buying-a-domain-name) if ACM can find it on WHOIS. That why
+  we have decided not to hide this information on WHOIS.
+
+In my case though AWS bought [ghuser.io](https://ghuser.io) from the registrar
+[Gandi](https://www.gandi.net) who hides your information on WHOIS in any case. So I didn't receive
+any e-mail at all. Luckily there is another way to prove ownership:
+[validation via DNS](https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html). In
+your [ACM dashboard](https://console.aws.amazon.com/acm/home) you should see your domain in the
+`Pending validation` state, with the possibility to create a special
+[CNAME record](https://en.wikipedia.org/wiki/CNAME_record) like
+`_fd72780b18076ccf5f75a49256c69353.ghuser.io` to prove ownership.
+
+To do so, create a file [aws/dns_upsert.json](aws/dns_upsert.json) containing
+
+```json
+{
+  "Comment": "Updates existing CNAME record for ACM validation",
+  "Changes": [
+    {
+      "Action": "UPSERT",
+      "ResourceRecordSet": {
+        "Name": "_fd72780b18076ccf5f75a49256c69353.ghuser.io.",
+        "Type": "CNAME",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "_263f4205641205f64761418f33de1366.acm-validations.aws."
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+and run
+
+```bash
+$ aws route53 list-hosted-zones | grep ghuser.io -B1
+            "Id": "/hostedzone/Z2XLL8YMM7K4J0", 
+            "Name": "ghuser.io."
+$ aws route53 change-resource-record-sets --hosted-zone-id /hostedzone/Z2XLL8YMM7K4J0 \
+  --change-batch "file://$(pwd)/aws/dns_upsert.json"
+```
