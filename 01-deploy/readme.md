@@ -80,21 +80,6 @@ $ npx reframe start
 
 ## Making your app Up-compatible
 
-What you need to know:
-
-* `reframe start` is pretty much like `reframe build && reframe server` and you'll want:
-  * to run `reframe build` locally, then
-  * to send the build output to AWS, and then
-  * to have AWS run `reframe server`.
-* The default Reframe server:
-  * listens at `PORT` if that environment variable is defined,
-  * listens at 3000 otherwise.
-* Up creates an AWS Lambda function that:
-  * runs `npm install`, then
-  * runs `PORT=<some number> npm start`, then
-  * waits for your app to behave like an HTTP server listening at `PORT`, and then
-  * exposes it to the world over HTTPS.
-
 4. Define `npm start` in your [package.json](package.json):
 
 ```json
@@ -107,6 +92,21 @@ What you need to know:
   }
 }
 ```
+
+> **NOTES**:
+>
+> * `reframe start` is pretty much like `reframe build && reframe server` and you'll want:
+>   * to run `reframe build` locally, then
+>   * to send the build output to AWS, and then
+>   * to have AWS run `reframe server`.
+> * The default Reframe server:
+>   * listens at `PORT` if that environment variable is defined,
+>   * listens at 3000 otherwise.
+> * Up creates an AWS Lambda function that:
+>   * runs `npm install`, then
+>   * runs `PORT=<some number> npm start`, then
+>   * waits for your app to behave like an HTTP server listening at `PORT`, and then
+>   * exposes it to the world over HTTPS.
 
 ## Setting up your AWS account
 
@@ -132,7 +132,71 @@ Default output format [None]:
 ```
 
 8. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
-   [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
+   [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli):
+
+<details>
+  <summary>
+    <code>aws/apex-up-policy.json</code>
+  </summary>
+  <br/>
+  <div class="highlight highlight-source-json">
+    <pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "acm:*",
+                "cloudformation:Create*",
+                "cloudformation:Delete*",
+                "cloudformation:Describe*",
+                "cloudformation:ExecuteChangeSet",
+                "cloudformation:Update*",
+                "cloudfront:*",
+                "cloudwatch:*",
+                "ec2:*",
+                "ecs:*",
+                "events:*",
+                "iam:AttachRolePolicy",
+                "iam:CreatePolicy",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:DeleteRolePolicy",
+                "iam:GetRole",
+                "iam:PassRole",
+                "iam:PutRolePolicy",
+                "lambda:AddPermission",
+                "lambda:Create*",
+                "lambda:Delete*",
+                "lambda:Get*",
+                "lambda:InvokeFunction",
+                "lambda:List*",
+                "lambda:RemovePermission",
+                "lambda:Update*",
+                "logs:Create*",
+                "logs:Describe*",
+                "logs:FilterLogEvents",
+                "logs:Put*",
+                "logs:Test*",
+                "route53:*",
+                "route53domains:*",
+                "s3:*",
+                "ssm:*",
+                "sns:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": "apigateway:*",
+            "Resource": "arn:aws:apigateway:*::/*"
+        }
+    ]
+}</pre>
+  </div>
+</details>
+<br/>
 
 9. Apply this policy to `myuser`:
 
