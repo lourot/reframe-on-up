@@ -13,7 +13,7 @@
   How I deployed a Reframe web app on Up
 </p>
 <p align="right">
-  <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
+  <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 20 Jun 2018
 </p>
 
 ⇒ [Part I: How I deployed for free a Reframe web app on Up in less than an hour](01-deploy/)

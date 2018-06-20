@@ -11,7 +11,7 @@
   How I deployed for free a Reframe web app on Up in less than an hour
 </p>
 <p align="right">
-  <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 17 Jun 2018
+  <a href="https://github.com/AurelienLourot">AurelienLourot</a> - 20 Jun 2018
 </p>
 
 In the first part of this [series](../readme.md) I show how I
@@ -33,13 +33,11 @@ In the first part of this [series](../readme.md) I show how I
 $ mkdir ~/myapp/
 $ cd ~/myapp/
 $ echo {} > package.json
-$ npm install @reframe/cli@0.1.13-next.0 --save
+$ npm install @reframe/cli --save
+...
++ @reframe/cli@0.1.13
+...
 ```
-
-> **NOTE**: At the time of writing the latest stable Reframe version (0.1.12) has a bug in which
-> the build output contains invalid paths in some cases. Thus we need to install this floating
-> version which contains
-> [a fix](https://github.com/reframejs/reframe/commit/215a3b97316e588020351cb851ab4afafc765e0d).
 
 2. Create a Hello World:
 
@@ -57,9 +55,9 @@ Fix this by editing your [package.json](package.json) and making sure it looks l
 ```json
 {
   "dependencies": {
-    "@reframe/cli": "^0.1.13-next.0",
+    "@reframe/cli": "^0.1.13",
     "@brillout/fetch": "^0.1.0",
-    "@reframe/react-kit": "0.1.13-next.0",
+    "@reframe/react-kit": "0.1.13",
     "react": "^16.3.2"
   }
 }
@@ -88,49 +86,22 @@ What you need to know:
   * to run `reframe build` locally, then
   * to send the build output to AWS, and then
   * to have AWS run `reframe server`.
+* The default Reframe server:
+  * listens at `PORT` if that environment variable is defined,
+  * listens at 3000 otherwise.
 * Up creates an AWS Lambda function that:
   * runs `npm install`, then
   * runs `PORT=<some number> npm start`, then
   * waits for your app to behave like an HTTP server listening at `PORT`, and then
   * exposes it to the world over HTTPS.
 
-### Making your app listen to `PORT`
-
-4. Make your Reframe server code tweakable:
-
-```
-$ npx reframe eject server --skip-git
-...
- ✔ Eject done.
-```
-
-> **NOTES**:
->
-> * In the Reframe terminology "ejecting" a Reframe component means dumping the default code of that
->   component to a file so you can tweak it. Eventually if you eject all Reframe components, you
->   have fully gotten rid of Reframe.
-> * Without `--skip-git`, `reframe eject` will fail if your project isn't a Git repository. I anyway
->   don't like the idea of Reframe fiddling with Git.
-
-5. Replace `3000` by `process.env.PORT` in [server/start.js](server/start.js). So it should look
-   like:
-
-```js
-// ...
-    const server = Hapi.Server({
-        port: process.env.PORT,
-        debug: {request: ['internal']},
-    });
-// ...
-```
-
-6. Create useful npm scripts in your [package.json](package.json):
+4. Create useful npm scripts in your [package.json](package.json):
 
 ```json
 {
   "scripts": {
     "start": "reframe server",
-    "local": "PORT=3000 reframe start"
+    "local": "reframe start"
   },
   "dependencies": {
     "...": "..."
@@ -138,7 +109,7 @@ $ npx reframe eject server --skip-git
 }
 ```
 
-7. Run your app locally:
+5. Run your app locally:
 
 ```bash
 $ npm run local
@@ -154,17 +125,17 @@ $ npm run local
 
 ## Setting up your AWS account
 
-8. Create an IAM user `myuser` and an access key for it. We will need it in order to use the AWS
+6. Create an IAM user `myuser` and an access key for it. We will need it in order to use the AWS
    CLI.
 
 See the
 [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 for more details.
 
-9. Attach the `IAMFullAccess` policy to `myuser` so you can run commands like
+7. Attach the `IAMFullAccess` policy to `myuser` so you can run commands like
    `aws iam create-group ...` later.
 
-10. Install and configure the AWS CLI:
+8. Install and configure the AWS CLI:
 
 ```bash
 $ sudo pip install awscli
@@ -175,10 +146,10 @@ Default region name [None]: us-east-1
 Default output format [None]:
 ```
 
-11. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
-    [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
+9. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
+   [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
 
-12. Apply this policy to `myuser`:
+10. Apply this policy to `myuser`:
 
 ```bash
 $ aws iam create-policy --policy-name apex-up \
@@ -199,7 +170,7 @@ $ aws iam add-user-to-group --group-name apex-up --user-name myuser
 
 ## Setting up Up
 
-13. Install Up:
+11. Install Up:
 
 ```bash
 $ curl -sf https://up.apex.sh/install | BINDIR=. sh
@@ -214,7 +185,7 @@ $ ./up
 ...
 ```
 
-14. Reduce the allocated memory to the minimum by adding this to your [up.json](up.json):
+12. Reduce the allocated memory to the minimum by adding this to your [up.json](up.json):
 
 ```json
 {
@@ -225,7 +196,7 @@ $ ./up
 }
 ```
 
-15. Create useful npm scripts in your [package.json](package.json):
+13. Create useful npm scripts in your [package.json](package.json):
 
 ```json
 {
@@ -242,7 +213,7 @@ $ ./up
 
 ## Deploying your app
 
-16. Enjoy :)
+14. Enjoy :)
 
 ```bash
 $ npm run deploy
