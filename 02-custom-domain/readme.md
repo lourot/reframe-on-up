@@ -1,5 +1,3 @@
-> Work in progress
-
 <p align="center">
   <a href="https://github.com/AurelienLourot/reframe-on-up">
     <img src="https://rawgit.com/AurelienLourot/reframe-on-up/master/readme_assets/reframe-on-up.jpg"
@@ -139,3 +137,22 @@ $ aws route53 list-hosted-zones | grep ghuser.io -B1
 $ aws route53 change-resource-record-sets --hosted-zone-id /hostedzone/Z2XLL8YMM7K4J0 \
   --change-batch "file://$(pwd)/aws/dns_upsert.json"
 ```
+
+The `./up stack plan` command which was hanging will now proceed and print all changes that need to
+be applied on AWS.
+
+5. Apply these changes:
+
+```bash
+$ ./up stack apply
+```
+
+## Deploying your app
+
+6. Enjoy :)
+
+```bash
+$ npm run deploy
+```
+
+![remote](readme_assets/remote.png)
