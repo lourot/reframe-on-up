@@ -95,13 +95,12 @@ What you need to know:
   * waits for your app to behave like an HTTP server listening at `PORT`, and then
   * exposes it to the world over HTTPS.
 
-4. Create useful npm scripts in your [package.json](package.json):
+4. Define `npm start` in your [package.json](package.json):
 
 ```json
 {
   "scripts": {
-    "start": "reframe server",
-    "local": "reframe start"
+    "start": "reframe server"
   },
   "dependencies": {
     "...": "..."
@@ -109,33 +108,19 @@ What you need to know:
 }
 ```
 
-5. Run your app locally:
-
-```bash
-$ npm run local
-...
- ✔ Server running (for development)
-     http://localhost:3000/ -> WelcomePage
-     http://localhost:3000/counter -> CounterPage
-     http://localhost:3000/game-of-thrones -> GameOfThronesPage
-     http://localhost:3000/time -> TimePage
-```
-
-![localhost](readme_assets/localhost.png)
-
 ## Setting up your AWS account
 
-6. Create an IAM user `myuser` and an access key for it. We will need it in order to use the AWS
+5. Create an IAM user `myuser` and an access key for it. We will need it in order to use the AWS
    CLI.
 
 See the
 [AWS documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 for more details.
 
-7. Attach the `IAMFullAccess` policy to `myuser` so you can run commands like
+6. Attach the `IAMFullAccess` policy to `myuser` so you can run commands like
    `aws iam create-group ...` later.
 
-8. Install and configure the AWS CLI:
+7. Install and configure the AWS CLI:
 
 ```bash
 $ sudo pip install awscli
@@ -146,10 +131,10 @@ Default region name [None]: us-east-1
 Default output format [None]:
 ```
 
-9. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
+8. Create a file [aws/apex-up-policy.json](aws/apex-up-policy.json) containing the
    [IAM policy recommended by Up](https://up.docs.apex.sh/#aws_credentials.iam_policy_for_up_cli).
 
-10. Apply this policy to `myuser`:
+9. Apply this policy to `myuser`:
 
 ```bash
 $ aws iam create-policy --policy-name apex-up \
@@ -170,7 +155,7 @@ $ aws iam add-user-to-group --group-name apex-up --user-name myuser
 
 ## Setting up Up
 
-11. Install Up:
+10. Install Up:
 
 ```bash
 $ curl -sf https://up.apex.sh/install | BINDIR=. sh
@@ -185,7 +170,7 @@ $ ./up
 ...
 ```
 
-12. Reduce the allocated memory to the minimum by adding this to your [up.json](up.json):
+11. Reduce the allocated memory to the minimum by adding this to your [up.json](up.json):
 
 ```json
 {
@@ -196,7 +181,7 @@ $ ./up
 }
 ```
 
-13. Create useful npm scripts in your [package.json](package.json):
+12. Create useful npm scripts in your [package.json](package.json):
 
 ```json
 {
@@ -213,7 +198,7 @@ $ ./up
 
 ## Deploying your app
 
-14. Enjoy :)
+13. Enjoy :)
 
 ```bash
 $ npm run deploy

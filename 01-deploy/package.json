@@ -1,7 +1,6 @@
 {
   "scripts": {
     "start": "reframe server",
-    "local": "reframe start",
     "deploy": "reframe build && ./up && ./up stack status && ./up url",
     "undeploy": "./up stack delete"
   },
