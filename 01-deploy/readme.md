@@ -264,6 +264,14 @@ $ ./up
 }
 ```
 
+> **NOTE**: Up does many things in one command (`./up`) under the hood:
+>
+> * it sets up AWS Lambda;
+> * it sets up AWS API Gateway;
+> * it sets up AWS Route 53 if you have a [custom domain](../02-custom-domain/);
+> * it does all this by using AWS CloudFormation so that everything nicely belongs to a Stack that
+>   can be entirely deleted in a single command as well (`./up stack delete`).
+
 ## Deploying your app
 
 13. Enjoy :)
